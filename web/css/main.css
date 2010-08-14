@@ -1,0 +1,53 @@
+#sf_admin_container .sf_admin_action_recibo
+{
+  background: url(../images/recibo_icon.png) no-repeat 3px 2px;
+  border-right: 4px solid #73B65A !important;
+}
+
+#sf_admin_container .sf_admin_action_ne
+{
+  background: url(../images/ne_icon.png) no-repeat 3px 2px;
+  border-right: 4px solid #73B65A !important;
+}
+
+
+/*Rojo Rojito*/
+#sf_admin_container .sf_admin_list th {
+  background-color:#87CEFA !important;
+  color: #FFF !important;
+}
+
+#sf_admin_container .sf_admin_list th a {
+  color: #FFF !important;
+}
+
+#sf_admin_container .sf_admin_list td a {
+  color: #555 !important;
+}
+
+#sf_admin_container .sf_admin_row_1 td {
+  background-color: #EEE !important;
+}
+
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_create,
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_save,
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_save_and_add,
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_list,
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_delete,
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_filter,
+#sf_admin_container ul.sf_admin_actions .sf_admin_action_reset_filter {
+  border-right:4px solid #FF3300 !important;
+}
+
+#sf_admin_container {
+  position: relative;
+}
+
+#sf_admin_container #sf_admin_content {
+  margin-right:30px !important;
+}
+
+#sf_admin_container fieldset h2 {
+  background-color: #87CEFA !important;
+  color:#FFF !important;
+}

@@ -1,0 +1,3 @@
+all:
+  laigu_admin_theme_plugin:
+    web_dir_extjs:   /js/extjs # specify your folder where to pick ExtJs.

@@ -1,0 +1,136 @@
+Acciones:
+  connection: gesser
+  tableName: acciones
+  columns:
+    servicios_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+    accion:
+      type: string(1000)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+  relations:
+    Servicio:
+      class: Servicios
+      local: servicios_id
+      foreign: id
+      type: one
+
+Entregas:
+  connection: gesser
+  tableName: entregas
+  columns:
+    servicios_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+    observacion:
+      type: string(1000)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+  relations:
+    Servicio:
+      class: Servicios
+      local: servicios_id
+      foreign: id
+      type: one
+
+
+Servicios:
+  connection: gesser
+  tableName: servicios
+  columns:
+    cliente:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    situacion:
+      type: string(1000)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    observacion:
+      type: string(1000)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+    factura:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+    articulo:
+      type: string(30)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    estado:
+      type: string(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false

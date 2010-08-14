@@ -1,0 +1,55 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Entregas
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          entregas
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        servicios_id:   { label: Cliente }
+        id:             { label: Nro. Entrega }
+        observacion:    { label: Observaciones, attributes: { cols: 60, rows: 6 } }
+        fecha:          { label: Fecha, params: date_format='d/M/y' }
+
+      list:
+        title:          Manejo de Entregas/Devoluciones
+        display:        [ =id, =nombre, observacion, fecha ]
+        fields:
+          fecha:        { params: date_format='d/M/y' }
+        object_actions:
+          _delete:      ~
+          _edit:        ~
+          ne:      { action: notaEntrega, label: Nota de Entrega, attributes: onclick='var w=window.open(this.href,"true","menubar=no,toolbar=no,scrollbars=yes,width=500,height=600,resizable=yes,left=500,top=80");w.focus();return false;' }
+        actions:
+          _new:         ~
+
+      filter:
+        display:        [ servicios_id, observacion, fecha ]
+      form:    ~
+      edit:
+        title:          Edición de Entregas/Devoluciones
+        fields:
+          servicios_id:   { attributes: {disabled: true} }
+          fecha:        { params: date_format='d/M/y' }
+        display:
+          Entrega:    [ _entregas ]
+          Cliente:    [ servicios_id ]
+          "Entrega/Devolucion":   [ observacion, fecha ]
+        actions:
+          ne:      { action: notaEntrega, label: Nota de Entrega, attributes: onclick='var w=window.open(this.href,"true","menubar=no,toolbar=no,scrollbars=yes,width=500,height=600,resizable=yes,left=500,top=80");w.focus();return false;' }
+          _list:        ~
+          _delete:      ~
+          _save:        ~
+      new:
+        title:          Edición de Entregas/Devoluciones
+        display:
+          Cliente:    [ servicios_id ]
+          "Entrega/Devolucion":   [ observacion, fecha ]

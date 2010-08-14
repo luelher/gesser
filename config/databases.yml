@@ -1,0 +1,31 @@
+dev:
+  profit:
+    param:
+      classname: DebugPDO
+  gesser:
+    param:
+      classname: DebugPDO
+test:
+  profit:
+    param:
+      classname: DebugPDO
+  gesser:
+    param:
+      classname: DebugPDO
+all:
+  profit:
+    class: sfDoctrineDatabase
+    param:
+      phptype:   mssql
+      classname: MssqlPropelPDO
+      dsn:       dblib:host=192.168.56.3;dbname=RECADMAR
+      username:  luelher
+      password:  797965
+      encoding:
+      pooling:   true
+  gesser:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql://root:root@localhost/servicios'
+      username: root
+      password: root

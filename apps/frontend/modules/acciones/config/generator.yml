@@ -1,0 +1,53 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Acciones
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          acciones
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        servicios_id:   { label: Cliente }
+        id:             { label: Nro. Acción }
+        accion:         { label: Acción, attributes: { cols: 60, rows: 6 } }
+        fecha:          { label: Fecha, params: date_format='d/M/y' }
+
+      list:
+        title:          Acciones
+        display:        [ =nombre, accion, fecha ]
+        fields:
+          fecha:        { params: date_format='d/M/y' }
+        object_actions:
+          _delete:      ~
+          _edit:        ~
+        actions:
+          _new:         ~
+
+      filter:
+        display:        [ servicios_id, accion, fecha ]
+      form:    ~
+      edit:
+        title:          Edición de Acciones
+        fields:
+          servicios_id:   { attributes: {disabled: true} }
+          fecha:        { params: date_format='d/M/y' }
+        display:
+          Cliente:    [ servicios_id ]
+          Acción:   [ accion, fecha ]
+        actions:
+          _list:        ~
+          _delete:      ~
+          _save:        ~
+      new:
+        title:          Nueva Acción
+        display:
+          Cliente:    [ servicios_id ]
+          Acción:   [ accion, fecha ]
+          

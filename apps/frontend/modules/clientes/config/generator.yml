@@ -1,0 +1,54 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Clientes
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          clientes
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        co_cli:         { label: Cédula }
+        cli_des:        { label: Nombre }
+        direc1:         { label: Dirección }
+        telefonos:       { label: Teléfono }
+      list:
+        title:          Clientes (Tomados de Profit)
+        display:        [ =co_cli, cli_des, telefonos ]
+        max_per_page:   15
+      filter:
+        display:        [ co_cli, cli_des ]
+      form:    ~
+      edit:
+        title:          Edición de Servicios
+        fields:
+          co_cli:       { params: disabled=true }
+          cli_des:      { params: disabled=true }
+          direc1:       { params: disabled=true }
+          telefonos:    { params: disabled=true }
+        display:        [ co_cli, cli_des, direc1, telefonos ]
+        actions:
+          _list: ~
+
+
+#    list:
+#      title:          Clientes (Tomados de Profit)
+#      display:        [ =co_cli, cli_des, telefonos ]
+#      filters:        [ co_cli, cli_des ]
+#      max_per_page:   15
+#    edit:
+#      title:          Edici�n de Servicios
+#      fields:
+#        co_cli:       { params: disabled=true }
+#        cli_des:      { params: disabled=true }
+#        direc1:       { params: disabled=true }
+#        telefonos:    { params: disabled=true }
+#      display:        [ co_cli, cli_des, direc1, telefonos ]
+#      actions:
+#        _list: -

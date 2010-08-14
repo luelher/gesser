@@ -1,0 +1,52 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Servicios
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          servicios
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        cliente:        { label: Cédula }
+        nombre:         { label: Nombre }
+        articulo:       { label: Código Artículo }
+        nomart:         { label: Descripción Artículo }
+        situacion:      { label: Situación, attributes: { cols: 60, rows: 6 } }
+        observacion:    { label: Observación, attributes: { cols: 60, rows: 6 } }
+        fecha:          { label: Fecha }
+        id:             { label: Nro. Servicio }
+        servicio:       { label: Nro. Servicio }
+      list:
+        title:          Manejo de Servicios
+        display:        [ =id, =nombre, situacion, articulo, nomart  ]
+        max_per_page:   5
+        fields:
+          fecha:        { params: date_format='d/M/y' }
+        object_actions:
+          _delete:      ~
+          _edit:        { label: Editar }
+          recibo:      { action: recibo, label: Recibo, attributes: onclick='var w=window.open(this.href,"true","menubar=no,toolbar=no,scrollbars=yes,width=500,height=600,resizable=yes,left=500,top=80");w.focus();return false;' }
+      filter:
+        display:        [ id, cliente, fecha ]
+      form:    ~
+      edit:
+        title:          Edición de Servicios
+        display:
+          Servicio:   [_servicio]
+          Cliente:    [cliente]
+          Artículo:   [factura, articulo]
+          Detalle del Servicio:   [situacion, observacion, fecha]
+      new:
+        title:          Nuevo Servicio
+        display:
+          Cliente:    [cliente]
+          Artículo:   [factura, articulo]
+          Servicio:   [situacion, observacion, fecha]
+
