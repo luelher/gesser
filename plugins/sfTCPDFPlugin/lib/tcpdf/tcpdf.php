@@ -69,7 +69,7 @@
 // dullus for text Justification.
 // Bob Vincent (pillarsdotnet@users.sourceforge.net) for <li> value attribute.
 // Patrick Benny for text stretch suggestion on Cell().
-// Johannes Güntert for JavaScript support.
+// Johannes Gï¿½ntert for JavaScript support.
 // Denis Van Nuffelen for Dynamic Form.
 // Jacek Czekaj for multibyte justification
 // Anthony Ferrara for the reintroduction of legacy image methods.
@@ -80,7 +80,7 @@
 // Mohamad Ali Golkar, Saleh AlMatrafe, Charles Abbott for Arabic and Persian support.
 // Moritz Wagner and Andreas Wurmser for graphic functions.
 // Andrew Whitehead for core fonts support.
-// Esteban Joël Marín for OpenType font conversion.
+// Esteban Joï¿½l Marï¿½n for OpenType font conversion.
 // Teus Hagen for several suggestions and fixes.
 // Yukihiro Nakadaira for CID-0 CJK fonts fixes.
 // Kosmas Papachristos for some CSS improvements.
@@ -5626,7 +5626,7 @@ if (!class_exists('TCPDF', false)) {
 		 * @param float $cellMargin Internal cell margin, if empty or <= 0, extended up to current pdf cell margin (default '').
 		 * @param float $lineWidth Line width, if empty or <= 0, extended up to current pdf line width (default '').
 		 * @return float Return the minimal height needed for multicell method for printing the $txt param.
-		 * @author Alexander Escalona Fernández, Nicola Asuni
+		 * @author Alexander Escalona Fernï¿½ndez, Nicola Asuni
 		 * @access public
 		 * @since 4.5.011
 		 */
@@ -5726,7 +5726,7 @@ if (!class_exists('TCPDF', false)) {
 		 * @param float $cellMargin Internal cell margin, if empty or <= 0, extended up to current pdf cell margin (default '').
 		 * @param float $lineWidth Line width, if empty or <= 0, extended up to current pdf line width (default '').
 		 * @return float Return the minimal height needed for multicell method for printing the $txt param.
-		 * @author Nicola Asuni, Alexander Escalona Fernández
+		 * @author Nicola Asuni, Alexander Escalona Fernï¿½ndez
 		 * @access public
 		 */
 		public function getStringHeight($w, $txt, $reseth=false, $autopadding=true, $cellMargin='', $lineWidth='') {
@@ -11564,7 +11564,7 @@ if (!class_exists('TCPDF', false)) {
 		}
 
 		/**
-		 * Append a cubic Bézier curve to the current path. The curve shall extend from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bézier control points.
+		 * Append a cubic Bï¿½zier curve to the current path. The curve shall extend from the current point to the point (x3, y3), using (x1, y1) and (x2, y2) as the Bï¿½zier control points.
 		 * The new current point shall be (x3, y3).
 		 * @param float $x1 Abscissa of control point 1.
 		 * @param float $y1 Ordinate of control point 1.
@@ -11580,7 +11580,7 @@ if (!class_exists('TCPDF', false)) {
 		}
 
 		/**
-		 * Append a cubic Bézier curve to the current path. The curve shall extend from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bézier control points.
+		 * Append a cubic Bï¿½zier curve to the current path. The curve shall extend from the current point to the point (x3, y3), using the current point and (x2, y2) as the Bï¿½zier control points.
 		 * The new current point shall be (x3, y3).
 		 * @param float $x2 Abscissa of control point 2.
 		 * @param float $y2 Ordinate of control point 2.
@@ -11594,7 +11594,7 @@ if (!class_exists('TCPDF', false)) {
 		}
 
 		/**
-		 * Append a cubic Bézier curve to the current path. The curve shall extend from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bézier control points.
+		 * Append a cubic Bï¿½zier curve to the current path. The curve shall extend from the current point to the point (x3, y3), using (x1, y1) and (x3, y3) as the Bï¿½zier control points.
 		 * The new current point shall be (x3, y3).
 		 * @param float $x1 Abscissa of control point 1.
 		 * @param float $y1 Ordinate of control point 1.
@@ -12985,7 +12985,7 @@ if (!class_exists('TCPDF', false)) {
 		 * Adds a javascript
 		 * @param string $script Javascript code
 		 * @access public
-		 * @author Johannes Güntert, Nicola Asuni
+		 * @author Johannes Gï¿½ntert, Nicola Asuni
 		 * @since 2.1.002 (2008-02-12)
 		 */
 		public function IncludeJS($script) {
@@ -13010,7 +13010,7 @@ if (!class_exists('TCPDF', false)) {
 		/**
 		 * Create a javascript PDF string.
 		 * @access protected
-		 * @author Johannes Güntert, Nicola Asuni
+		 * @author Johannes Gï¿½ntert, Nicola Asuni
 		 * @since 2.1.002 (2008-02-12)
 		 */
 		protected function _putjavascript() {
@@ -14737,7 +14737,7 @@ if (!class_exists('TCPDF', false)) {
 		 * @param array $col1 first color (Grayscale, RGB or CMYK components).
 		 * @param array $col2 second color (Grayscale, RGB or CMYK components).
 		 * @param array $coords array of the form (x1, y1, x2, y2) which defines the gradient vector (see linear_gradient_coords.jpg). The default value is from left to right (x1=0, y1=0, x2=1, y2=0).
-		 * @author Andreas Würmser, Nicola Asuni
+		 * @author Andreas Wï¿½rmser, Nicola Asuni
 		 * @since 3.1.000 (2008-06-09)
 		 * @access public
 		 */
@@ -14755,7 +14755,7 @@ if (!class_exists('TCPDF', false)) {
 		 * @param array $col1 first color (Grayscale, RGB or CMYK components).
 		 * @param array $col2 second color (Grayscale, RGB or CMYK components).
 		 * @param array $coords array of the form (fx, fy, cx, cy, r) where (fx, fy) is the starting point of the gradient with color1, (cx, cy) is the center of the circle with color2, and r is the radius of the circle (see radial_gradient_coords.jpg). (fx, fy) should be inside the circle, otherwise some areas will not be defined.
-		 * @author Andreas Würmser, Nicola Asuni
+		 * @author Andreas Wï¿½rmser, Nicola Asuni
 		 * @since 3.1.000 (2008-06-09)
 		 * @access public
 		 */
@@ -14778,7 +14778,7 @@ if (!class_exists('TCPDF', false)) {
 		 * @param array $coords_min minimum value used by the coordinates. If a coordinate's value is smaller than this it will be cut to coords_min. default: 0
 		 * @param array $coords_max maximum value used by the coordinates. If a coordinate's value is greater than this it will be cut to coords_max. default: 1
 		 * @param boolean $antialias A flag indicating whether to filter the shading function to prevent aliasing artifacts.
-		 * @author Andreas Würmser, Nicola Asuni
+		 * @author Andreas Wï¿½rmser, Nicola Asuni
 		 * @since 3.1.000 (2008-06-09)
 		 * @access public
 		 */
@@ -14863,7 +14863,7 @@ if (!class_exists('TCPDF', false)) {
 		 * @param float $y ordinate of the top left corner of the rectangle.
 		 * @param float $w width of the rectangle.
 		 * @param float $h height of the rectangle.
-		 * @author Andreas Würmser, Nicola Asuni
+		 * @author Andreas Wï¿½rmser, Nicola Asuni
 		 * @since 3.1.000 (2008-06-09)
 		 * @access protected
 		 */
@@ -16109,19 +16109,19 @@ if (!class_exists('TCPDF', false)) {
 			// remove empty blocks
 			$cssdata = preg_replace('/([^\}\{]+)\{\}/', '', $cssdata);
 			// replace media type parenthesis
-			$cssdata = preg_replace('/@media[\s]+([^\{]*)\{/i', '@media \\1§', $cssdata);
-			$cssdata = preg_replace('/\}\}/si', '}§', $cssdata);
+			$cssdata = preg_replace('/@media[\s]+([^\{]*)\{/i', '@media \\1ï¿½', $cssdata);
+			$cssdata = preg_replace('/\}\}/si', '}ï¿½', $cssdata);
 			// trim string
 			$cssdata = trim($cssdata);
 			// find media blocks (all, braille, embossed, handheld, print, projection, screen, speech, tty, tv)
 			$cssblocks = array();
 			$matches = array();
-			if (preg_match_all('/@media[\s]+([^\§]*)§([^§]*)§/i', $cssdata, $matches) > 0) {
+			if (preg_match_all('/@media[\s]+([^\ï¿½]*)ï¿½([^ï¿½]*)ï¿½/i', $cssdata, $matches) > 0) {
 				foreach ($matches[1] as $key => $type) {
 					$cssblocks[$type] = $matches[2][$key];
 				}
 				// remove media blocks
-				$cssdata = preg_replace('/@media[\s]+([^\§]*)§([^§]*)§/i', '', $cssdata);
+				$cssdata = preg_replace('/@media[\s]+([^\ï¿½]*)ï¿½([^ï¿½]*)ï¿½/i', '', $cssdata);
 			}
 			// keep 'all' and 'print' media, other media types are discarded
 			if (isset($cssblocks['all']) AND !empty($cssblocks['all'])) {
@@ -21990,7 +21990,7 @@ if (!class_exists('TCPDF', false)) {
 						}
 						break;
 					}
-					case 'Q': { // quadratic Bézier curveto
+					case 'Q': { // quadratic Bï¿½zier curveto
 						foreach ($params as $ck => $cp) {
 							$params[$ck] = $cp;
 							if ((($ck + 1) % 4) == 0) {
@@ -22016,7 +22016,7 @@ if (!class_exists('TCPDF', false)) {
 						}
 						break;
 					}
-					case 'T': { // shorthand/smooth quadratic Bézier curveto
+					case 'T': { // shorthand/smooth quadratic Bï¿½zier curveto
 						foreach ($params as $ck => $cp) {
 							$params[$ck] = $cp;
 							if (($ck % 2) != 0) {

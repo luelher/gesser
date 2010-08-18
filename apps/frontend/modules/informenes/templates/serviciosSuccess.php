@@ -10,5 +10,7 @@
 <?php echo form_tag('informenes/servicios') ?>
       <?php echo $form ?>
   <input type="submit" name="generar">
+  <br>
+  <p><?php echo $mensaje ?></p>
 </form>
 </div>
