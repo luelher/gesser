@@ -79,7 +79,7 @@ class PDFEntregas extends sfTCPDF {
     //$this->Cell(0, $cell_height, $headerdata['title'], 0, 1, '', 0, '', 0);
     $this->SetFont($headerfont[0], 'B', 8);
     $this->setXY(140,24);
-    $this->Cell(20, 20, 'Desde: '.$this->desde.'   Hasta: '.$this->hasta);
+    $this->Cell(20, 20, 'Desde: '.date('d/m/Y', strtotime($this->desde)).'   Hasta: '.date('d/m/Y', strtotime($this->hasta)));
     $this->setXY(16,28);
     $this->Cell(20, 20, 'Cliente');
     $this->Cell(18, 20, 'Fecha');
