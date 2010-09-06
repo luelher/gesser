@@ -48,7 +48,7 @@ class informenesActions extends sfActions
           $desde = explode('/', $criterios['fecha_desde']);
           $hasta = explode('/', $criterios['fecha_hasta']);
 
-          $pdf->Body($desde[2].'-'.$desde[1].'-'.$desde[1],$hasta[2].'-'.$hasta[1].'-'.$hasta[1]);
+          $pdf->Body($desde[2].'-'.$desde[1].'-'.$desde[0],$hasta[2].'-'.$hasta[1].'-'.$hasta[0]);
           // output
           $pdf->Output();
 
@@ -98,7 +98,7 @@ class informenesActions extends sfActions
           $desde = explode('/', $criterios['fecha_desde']);
           $hasta = explode('/', $criterios['fecha_hasta']);
 
-          $pdf->Body($desde[2].'-'.$desde[1].'-'.$desde[1],$hasta[2].'-'.$hasta[1].'-'.$hasta[1]);
+          $pdf->Body($desde[2].'-'.$desde[1].'-'.$desde[0],$hasta[2].'-'.$hasta[1].'-'.$hasta[0]);
           // output
           $pdf->Output();
 
