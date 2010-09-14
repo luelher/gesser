@@ -16,7 +16,7 @@ abstract class BaseServiciosFormFilter extends BaseFormFilterDoctrine
       'cliente'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'situacion'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'observacion' => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'fecha'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'fecha'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(array('format' => 'd/m/Y')), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'factura'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'articulo'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'estado'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
