@@ -71,7 +71,7 @@ class presupuestosActions extends sfActions
         $this->intereses = '';
         $this->inicial = '';
         
-        $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+        $this->getUser()->setFlash('error', 'No se puede calcular si no se completan los datos necesarios', false);
       }
     }else{
       $this->saldo = '';

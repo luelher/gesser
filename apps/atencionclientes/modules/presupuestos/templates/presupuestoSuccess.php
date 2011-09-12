@@ -26,7 +26,7 @@
             <?php echo $form ?>
             <div class="actions">
               <input type="submit" value="Calcular" class="btn primary">
-              <a class="btn" href="presupuesto">Limpiar</a>
+              <a class="btn" href="presupuestos">Limpiar</a>
             </div>
           </fieldset>
         </form>
