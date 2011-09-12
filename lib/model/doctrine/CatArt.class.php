@@ -12,4 +12,7 @@
  */
 class CatArt extends BaseCatArt
 {
+  public function __toString() {
+    return $this->getCoCat().' - '.$this->getCatDes();
+  }
 }

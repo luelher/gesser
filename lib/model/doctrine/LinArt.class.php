@@ -12,4 +12,7 @@
  */
 class LinArt extends BaseLinArt
 {
+  public function __toString() {
+    return $this->getCoLin().' - '.$this->getLinDes();
+  }
 }

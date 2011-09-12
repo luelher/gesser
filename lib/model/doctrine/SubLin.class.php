@@ -12,4 +12,7 @@
  */
 class SubLin extends BaseSubLin
 {
+  public function __toString() {
+    return $this->getCoSubl().' - '.$this->getSublDes();
+  }
 }
