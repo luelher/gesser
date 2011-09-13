@@ -38,7 +38,19 @@ class presupuestosActions extends sfActions
         $D18 = (float)$cal['monto_venta'];
         $C20 = (float)$cal['porcentaje_inicial'];
 
-        $inicial = $D18*$C20/100;
+        if($cal['porcentaje_inicial']>0){
+          $inicial = $D18*$C20/100;
+          $porcentaje_inicial = $cal['porcentaje_inicial'];
+        }else{
+          if($cal['monto_inicial']>0){
+            $inicial = $cal['monto_inicial'];
+            $porcentaje_inicial = ($inicial * 100) / $D18;
+          }
+          else {
+            $inicial = 0;
+            $porcentaje_inicial = 0;
+          }
+        }
 
         $H19 = (float)$cal['cuotas'];
         $saldo = (float)$cal['monto_venta']-$inicial;
@@ -58,6 +70,7 @@ class presupuestosActions extends sfActions
         $this->venta_credito = $venta_credito;
         $this->intereses = $intereses;
         $this->inicial = $inicial;
+        $this->porcentaje_inicial = $porcentaje_inicial;
 
         $this->getUser()->setFlash('notice', 'Calculado', false);
 
@@ -70,6 +83,7 @@ class presupuestosActions extends sfActions
         $this->venta_credito = '';
         $this->intereses = '';
         $this->inicial = '';
+        $this->porcentaje_inicial = '';
         
         $this->getUser()->setFlash('error', 'No se puede calcular si no se completan los datos necesarios', false);
       }
@@ -80,6 +94,8 @@ class presupuestosActions extends sfActions
       $this->venta_credito = '';
       $this->intereses = '';
       $this->inicial = '';
+      $this->porcentaje_inicial = '';
+
     }
 
   }

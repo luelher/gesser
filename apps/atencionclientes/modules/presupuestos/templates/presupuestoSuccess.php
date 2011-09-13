@@ -34,6 +34,12 @@
       <div class="span7 columns">
         <fieldset>
           <h3>Resultados</h3>
+
+          <div class="clearfix alert-message warning">
+            <label for="saldo_financiar">Porcentaje Inicial</label>
+            <div class="input"> <span class="uneditable-input"> <h3> <strong><?php echo $inicial!='' ? number_format($porcentaje_inicial, 2,',','.') : ''; ?> </strong> </h3> </span> </div>
+          </div>
+
           <div class="clearfix alert-message warning">
             <label for="saldo_financiar">Inicial</label>
             <div class="input"> <span class="uneditable-input"> <h3> <strong><?php echo $inicial!='' ? number_format($inicial, 2,',','.') : ''; ?> </strong> </h3> </span> </div>
