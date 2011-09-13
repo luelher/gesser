@@ -15,7 +15,7 @@ class CalculadoraForm extends BaseForm
     ));
 
     $this->setValidators(array(
-      'monto_venta' => new sfValidatorNumber(array('min' => 1, 'max' => 999999999, 'required' => true), array('required' => 'Debe agregar el monto de la venta', 'min' =>'El número debe ser mayor a 1', 'max' => 'El número debe ser menor a 999.999.999')),
+      'monto_venta' => new sfValidatorNumber(array('min' => 0, 'max' => 999999999, 'required' => true), array('required' => 'Debe agregar el monto de la venta', 'min' =>'El número debe ser mayor a 10, 'max' => 'El número debe ser menor a 999.999.999')),
       'porcentaje_inicial'  => new sfValidatorNumber(array('min' => 1, 'max' => 999999999, 'required' => true), array('required' => 'Debe agregar el porcentaje a aplicar', 'min' =>'El número debe ser mayor a 1', 'max' => 'El número debe ser menor a 999.999.999')),
       'cuotas'      => new sfValidatorNumber(array('min' => 1, 'max' => 999999999, 'required' => true), array('required' => 'Debe agregar la cantidad de cuotas', 'min' =>'El número debe ser mayor a 1', 'max' => 'El número debe ser menor a 999.999.999')),
       'descuento'   => new sfValidatorNumber(array('min' => 0, 'max' => 999999999, 'required' => true), array('required' => 'Debe agregar el monto de descuento', 'min' =>'El número debe ser mayor a 1', 'max' => 'El número debe ser menor a 999.999.999')),
