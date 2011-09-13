@@ -1990,3 +1990,9 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .popover .content p, .popover .content ul, .popover .content ol {
   margin-bottom: 0;
 }
+
+
+.uneditable-input h3 {
+  font-size: 17px;
+  line-height: 16px;
+}

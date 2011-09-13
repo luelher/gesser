@@ -16,7 +16,7 @@ class InventarioForm extends BaseArtForm
     ));
 
     $this->setValidators(array(
-      'co_art'     => new sfValidatorChoice(array('choices' => array($this->getObject()->get('co_art')), 'empty_value' => $this->getObject()->get('co_art'), 'required' => false)),
+      'co_art'     => new sfValidatorString(array('max_length' => 120, 'required' => false)),
       'art_des'    => new sfValidatorString(array('max_length' => 120, 'required' => false)),
       'co_lin'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('LinArt'), 'required' => false)),
       'co_cat'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('CatArt'), 'required' => false)),

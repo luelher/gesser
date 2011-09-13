@@ -87,6 +87,37 @@ class presupuestosActions extends sfActions
   public function executeInventario(sfWebRequest $request)
   {
     $this->form = new InventarioForm();
+    $this->articulos = null;
+    if($this->getRequest()->getMethod()==sfRequest::POST){
+      $this->form->bind($request->getParameter('art'), $request->getFiles('art'));
+      if ($this->form->isValid())
+      {
+        $art = $request->getParameter('art');
+
+        $this->articulos = Doctrine_Query::create()->from('Art a');
+        $this->articulos->limit(10);
+        foreach($art as $name => $val){
+          if($name!='_csrf_token'){
+            if($val!=''){
+              $val = "%$val%";
+              $this->articulos->orWhere ("$name like '$val'");
+            }
+          }
+        }
+        
+        $this->articulos->execute();
+
+        $this->getUser()->setFlash('notice', 'Se encontrados '.$this->articulos->count().' Artículos, sólo se muestran 10', false);
+
+      }
+      else
+      {
+        $this->getUser()->setFlash('error', 'No se puede buscar si no se completan los datos necesarios', false);
+      }
+    }else{
+      
+    }
+
   }
 
 
