@@ -38,19 +38,19 @@
               <table class="zebra-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>Código</th>
                     <th>Nombre</th>
                     <th>Existencia</th>
+                    <th>Precio</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php if ($articulos) : ?>
                   <?php foreach($articulos->fetchArray() as $index => $art) : ?>
                   <tr>
-                    <td><?php echo ($index+1) ?></td>
                     <td><?php echo $art['co_art'] ?></td>
                     <td><?php echo $art['art_des'] ?></td>
+                    <td><?php echo $art['stock_act'] ?></td>
                     <td><h4> <strong> <?php echo number_format($art['prec_vta5'], 2,',','.') ?> </strong> </h4></td>
                   </tr>
                   <?php endforeach; ?>
