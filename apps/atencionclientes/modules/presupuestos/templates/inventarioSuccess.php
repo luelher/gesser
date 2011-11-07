@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 
-<div class="quickstart">
+<div class="quickstart" id="grid-system">
       <div class="hero-unit">
         <div class="row">
           <div class="span7 columns">
@@ -42,6 +42,7 @@
                     <th>Nombre</th>
                     <th>Existencia</th>
                     <th>Precio</th>
+                    <th>Seleccionar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,8 +51,14 @@
                   <tr>
                     <td><?php echo $art['co_art'] ?></td>
                     <td><?php echo $art['art_des'] ?></td>
-                    <td><?php echo $art['stock_act'] ?></td>
+                    <td><?php echo ($art['stock_act']==0) ? '<strong>Sin Existencia</strong>' : $art['stock_act'] ?></td>
                     <td><h4> <strong> <?php echo number_format($art['prec_vta5'], 2,',','.') ?> </strong> </h4></td>
+                    <td>
+                      <?php  if($art['stock_act']>0) : ?>
+                        <a id="btn<?php echo $index ?>" class="btn small" href="javascript:agregar_articulo('<?php echo 'btn'.$index ?>','<?php echo 'loader'.$index ?>','<?php echo $art['co_art'] ?>')">Agregar</a>
+                        <img id="loader<?php echo $index ?>" src="/images/loader.gif" style="vertical-align: middle; display: none" />
+                      <?php endif; ?>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                   <?php endif; ?>
@@ -62,4 +69,18 @@
           </div>
         </div>
       </div>
+
+
+   <div class="hero-unit">
+    <div class="row">
+      <div class="span16 columns">
+          <h2>Articulos Seleccionados</h2>
+          <div id="arts">
+            <?php include_partial('seleccionados', array('seleccionados' => $seleccionados)) ?>
+          </div>
+          <?php echo link_to1('Calcular', 'presupuestos/presupuesto', array('class' => 'btn primary')); ?>
+          <?php echo link_to1('Limpiar', 'presupuestos/limpiar', array('class' => 'btn')); ?>
+      </div>
+    </div>
+  </div>
   </div>

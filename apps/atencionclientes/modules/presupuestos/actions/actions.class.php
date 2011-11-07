@@ -27,13 +27,19 @@ class presupuestosActions extends sfActions
   {
     $D25 = 0.028333333;
     $this->form = new CalculadoraForm();
-    //$this->result = new ResultadoForm();
+    $this->seleccionados = $this->getUser()->getCarrito();
+    $this->total = 0;
+    
 
-    if($this->getRequest()->getMethod()==sfRequest::POST){
+    if($request->getMethod()==sfRequest::POST){
       $this->form->bind($request->getParameter('calculadora'), $request->getFiles('calculadora'));
       if ($this->form->isValid())
       {
         $cal = $request->getParameter('calculadora');
+        if(isset($cal['imprimir'])){
+          $this->setTemplate('layout');
+          $this->setTemplate('imprimir');
+        }
 
         $D18 = (float)$cal['monto_venta'];
         $C20 = (float)$cal['porcentaje_inicial'];
@@ -96,6 +102,12 @@ class presupuestosActions extends sfActions
       $this->inicial = '';
       $this->porcentaje_inicial = '';
 
+      foreach($this->seleccionados as $selec){
+        $this->total += ($selec->getCantidad()*$selec->getPrecVta5());
+      }
+
+      if($this->total>0) $this->form->setDefault ('monto_venta', round ($this->total,2) );
+
     }
 
   }
@@ -104,6 +116,7 @@ class presupuestosActions extends sfActions
   {
     $this->form = new InventarioForm();
     $this->articulos = null;
+    $this->seleccionados = $this->getUser()->getCarrito();
     if($this->getRequest()->getMethod()==sfRequest::POST){
       $this->form->bind($request->getParameter('art'), $request->getFiles('art'));
       if ($this->form->isValid())
@@ -111,7 +124,7 @@ class presupuestosActions extends sfActions
         $art = $request->getParameter('art');
 
         $this->articulos = Doctrine_Query::create()->from('Art a');
-        $this->articulos->limit(10);
+        $this->articulos->limit(5);
         foreach($art as $name => $val){
           if($name!='_csrf_token'){
             if($val!=''){
@@ -134,6 +147,30 @@ class presupuestosActions extends sfActions
       
     }
 
+  }
+
+  public function executeAgregar(sfWebRequest $request)
+  {
+    $this->seleccionados = null;
+    $this->error = false;
+
+    $co_art = $request->getParameter('co_art');
+    
+    $art = Doctrine::getTable('Art')->findOneByCoArt($co_art);
+
+    if($art) $this->getUser()->addArt($art);
+    else $this->error = true;
+
+    $this->seleccionados = $this->getUser()->getCarrito();
+
+
+  }
+
+  public function executeLimpiar(sfWebRequest $request)
+  {
+    $this->getUser()->resetCarrito();
+    
+    $this->redirect($request->getReferer());
   }
 
 

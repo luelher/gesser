@@ -5,6 +5,7 @@
     <?php include_metas() ?>
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="/css/bootstrap.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
   </head>

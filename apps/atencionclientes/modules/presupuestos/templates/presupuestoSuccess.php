@@ -25,8 +25,9 @@
 
             <?php echo $form ?>
             <div class="actions">
-              <input type="submit" value="Calcular" class="btn primary">
+              <input type="submit" id="calculadora_calcular" name="calculadora[calcular]" value="Calcular" class="btn primary">
               <?php echo link_to1('Limpiar', 'presupuestos/presupuesto', array('class' => 'btn')); ?>
+              <input type="submit" id="calculadora_imprimir" name="calculadora[imprimir]" value="Imprimir" class="btn info">
             </div>
           </fieldset>
         </form>
@@ -65,6 +66,19 @@
             <div class="input"> <span class="uneditable-input"> <h3> <strong><?php echo $intereses!='' ? number_format($intereses, 2,',','.') : ''; ?></strong> </h3> </span> </div>
           </div>
         </fieldset>          </div>
+    </div>
+  </div>
+
+   <div class="hero-unit">
+    <div class="row">
+      <div class="span16 columns">
+          <h2>Articulos Seleccionados</h2>
+          <div id="arts">
+            <?php include_partial('seleccionados', array('seleccionados' => $seleccionados)) ?>
+          </div>
+          <?php echo link_to1('Calcular', 'presupuestos/presupuesto', array('class' => 'btn primary')); ?>
+          <?php echo link_to1('Limpiar', 'presupuestos/limpiar', array('class' => 'btn')); ?>
+      </div>
     </div>
   </div>
 </div>

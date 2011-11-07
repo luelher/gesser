@@ -12,7 +12,20 @@
  */
 class Art extends BaseArt
 {
+  protected $cantidad=0;
+
   function getArticulo() {
     return $this->co_art.' - '.$this->art_des;
   }
+
+  function getCantidad()
+  {
+    return $this->cantidad;
+  }
+
+  function setCantidad($val)
+  {
+    $this->cantidad = (float)$val;
+  }
+
 }

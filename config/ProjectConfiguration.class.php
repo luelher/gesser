@@ -13,5 +13,6 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfJQueryUIPlugin');
     $this->enablePlugins('sfCatalogDataPlugin');
     $this->enablePlugins('sfTCPDFPlugin');
+    $this->enablePlugins('pmPDFKitPlugin');
   }
 }

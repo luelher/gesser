@@ -18,7 +18,7 @@ all:
     param:
       phptype:   mssql
       classname: MssqlPropelPDO
-      dsn:       dblib:host=192.168.56.3;dbname=RECADMAR
+      dsn:       dblib:host=10.42.43.90;dbname=RECADMAR
       username:  luelher
       password:  797965
       encoding:
@@ -26,6 +26,6 @@ all:
   gesser:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql://root:root@localhost/servicios'
+      dsn: 'mysql://root:123456@localhost/servicios'
       username: root
-      password: root
+      password: 123456

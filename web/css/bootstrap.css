@@ -330,7 +330,7 @@ textarea {
   width: 880px;
 }
 .row .span16 {
-  width: 940px;
+  width: 870px;
 }
 .row .offset1 {
   margin-left: 80px;
@@ -378,7 +378,7 @@ textarea {
   margin-left: 340px;
 }
 .row .offset-two-thirds {
-  margin-left: 660px;
+  margin-left: 590px;
 }
 html, body {
   background-color: #fff;
@@ -810,7 +810,7 @@ input[readonly]:focus, textarea[readonly]:focus, input.disabled {
   background: #f5f5f5;
   margin-top: 18px;
   margin-bottom: 18px;
-  padding: 17px 20px 18px 150px;
+  padding: 17px 20px 18px 120px;
   border-top: 1px solid #ddd;
   -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;

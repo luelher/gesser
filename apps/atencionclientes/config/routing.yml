@@ -13,4 +13,5 @@ default_index:
   param: { action: index }
 
 default:
-  url:   /:module/:action/*
+  url:   /:module/:action.:sf_format/*
+  param: { sf_format: html }
