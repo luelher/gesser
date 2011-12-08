@@ -303,7 +303,7 @@ textarea {
   width: 340px;
 }
 .row .span7 {
-  width: 400px;
+  width: 360px;
 }
 .row .span8 {
   width: 460px;
@@ -645,12 +645,12 @@ label {
   font-size: 13px;
   line-height: 18px;
   float: left;
-  width: 130px;
+  width: 110px;
   text-align: right;
   color: #404040;
 }
 div.input {
-  margin-left: 150px;
+  margin-left: 120px;
 }
 input[type=checkbox], input[type=radio] {
   cursor: pointer;
@@ -660,7 +660,7 @@ textarea,
 select,
 .uneditable-input {
   display: inline-block;
-  width: 210px;
+  width: 100px;
   height: 18px;
   padding: 4px;
   font-size: 13px;
@@ -1643,7 +1643,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-color: #eedc94 #eedc94 #e4c652;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 /*  margin-bottom: 18px;*/
-  padding: 3px 8px;
+/*  padding: 3px;*/
   color: #404040;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   border-width: 1px;
