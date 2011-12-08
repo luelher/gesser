@@ -44,6 +44,16 @@ class presupuestosActions extends sfActions
         $D18 = (float)$cal['monto_venta'];
         $C20 = (float)$cal['porcentaje_inicial'];
 
+        if($cal['giro_a_la_vista']!=''){
+          if($cal['giro_a_la_vista']=='12'){
+            $cal['monto_inicial'] = $D18 * (0.09046679);
+            $cal['cuotas'] = '12';
+          }elseif($cal['giro_a_la_vista']=='18'){
+            $cal['monto_inicial'] = $D18 * (0.06689259);
+            $cal['cuotas'] = '18';
+          }
+        }
+
         if($cal['porcentaje_inicial']>0){
           $inicial = $D18*$C20/100;
           $porcentaje_inicial = $cal['porcentaje_inicial'];
