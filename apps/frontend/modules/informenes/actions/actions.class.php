@@ -131,8 +131,8 @@ class informenesActions extends sfActions
     // settings
     //$pdf->SetFont('FreeSerif', '', 12);
     $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-    $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-    $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, PDF_AUTHOR );
+    $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, 30, PDF_FONT_SIZE_MAIN));
+    $pdf->SetHeaderData(PDF_HEADER_LOGO,30 , PDF_HEADER_TITLE, PDF_HEADER_STRING, PDF_AUTHOR );
     $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
     $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
     $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);

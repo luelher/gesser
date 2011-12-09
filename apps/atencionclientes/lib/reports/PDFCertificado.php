@@ -72,27 +72,36 @@ class PDFCertificado extends sfTCPDF {
 
       // init pdf doc
       $this->AliasNbPages();
-      $this->AddPage('L','A4');
+      $this->AddPage('P','A4');
       $this->Ln(8);
+      $this->SetFont('helvetica', 'B', 12);
 
-      $this->setXY(15,35);
-      $this->Cell(80, 0, "Cedula: $cedula");
-      $this->setXY(15,40);
-      $this->Cell(80, 0, "Factura: $factura");
-      $this->setXY(15,45);
-      $this->Cell(80, 0, "fecha factura: ".$fecha_factura['day'].'/'.$fecha_factura['month'].'/'.$fecha_factura['year']);
-      $this->setXY(15,50);
-      $this->Cell(80, 0, "nombre: $nombre");
-      $this->setXY(15,55);
-      $this->Cell(80, 0, "casa: $casa");
-      $this->setXY(15,60);
-      $this->Cell(80, 0, "avenida: $avenida");
-      $this->setXY(15,65);
-      $this->Cell(80, 0, "urbanizacion: $urbanizacion");
-      $this->setXY(15,70);
-      $this->Cell(80, 0, "ciudad: $ciudad");
-      $this->setXY(15,75);
-      $this->Cell(80, 0, "distrito: $distrito");
+      $this->setXY(30,172);
+      $this->Cell(80, 0, $cedula);
+
+      $this->setXY(120,172);
+      $this->Cell(80, 0, $factura);
+
+      $this->setXY(170,172);
+      $this->Cell(80, 0, $fecha_factura['day'].'/'.$fecha_factura['month'].'/'.$fecha_factura['year']);
+
+      $this->setXY(30,182);
+      $this->Cell(80, 0, $nombre);
+
+      $this->setXY(30,191);
+      $this->Cell(80, 0, $casa);
+
+      $this->setXY(120,191);
+      $this->Cell(80, 0, $avenida);
+
+      $this->setXY(30,200);
+      $this->Cell(80, 0, $urbanizacion);
+
+      $this->setXY(160,200);
+      $this->Cell(80, 0, $ciudad);
+
+      $this->setXY(30,209);
+      $this->Cell(80, 0, $distrito);
 
     }
 
