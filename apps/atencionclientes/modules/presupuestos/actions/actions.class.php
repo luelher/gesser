@@ -126,6 +126,8 @@ class presupuestosActions extends sfActions
   {
     $this->form = new InventarioForm();
     $this->articulos = null;
+    $this->pagina = 1;
+    $this->total = 0;
     $this->seleccionados = $this->getUser()->getCarrito();
     if($this->getRequest()->getMethod()==sfRequest::POST){
       $this->form->bind($request->getParameter('art'), $request->getFiles('art'));
@@ -133,20 +135,32 @@ class presupuestosActions extends sfActions
       {
         $art = $request->getParameter('art');
 
-        $this->articulos = Doctrine_Query::create()->from('Art a');
-        $this->articulos->limit(5);
+
+        $articulos = Doctrine_Query::create()->from('Art a');
         foreach($art as $name => $val){
           if($name!='_csrf_token'){
             if($val!=''){
               $val = "%$val%";
-              $this->articulos->orWhere ("$name like '$val'");
+              $articulos->orWhere ("$name like '$val'");
             }
           }
         }
-        
-        $this->articulos->execute();
 
-        $this->getUser()->setFlash('notice', 'Se encontrados '.$this->articulos->count().' Artículos, sólo se muestran 10', false);
+        $offset = (integer)$request->getParameter('page', 1);
+
+        $articulos->orderBy('a.co_art');
+        $articulos->offset($offset*5);
+
+        $this->pager = new sfDoctrinePager('Art', '5');
+        $this->pager->setQuery($articulos);
+        $this->pager->setPage($request->getParameter('page', 1));
+        $this->pager->init();
+
+        $this->articulos = $this->pager->getResults();
+        $this->pagina=$this->pager->getPage();
+        $this->total = $this->pager->getLastPage();
+
+        $this->getUser()->setFlash('notice', 'Se encontrados '.$this->pager->count().' Artículos, sólo se muestran 5', false);
 
       }
       else

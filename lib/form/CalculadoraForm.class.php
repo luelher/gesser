@@ -11,7 +11,7 @@ class CalculadoraForm extends BaseForm
       'monto_venta'    => new sfWidgetFormInputText(array(),array('class' => 'clearfix')),
       'porcentaje_inicial' => new sfWidgetFormInputText(array('default' => 0),array('class' => 'clearfix')),
       'monto_inicial' => new sfWidgetFormInputText(array('default' => 0),array('class' => 'clearfix')),
-      'giro_a_la_vista' => new sfWidgetFormSelect(array('default' => '', 'choices' => array('' => 'Seleccione..', '12' => 'a 12 Meses', '18' => 'a 18 Meses')), array('class' => 'clearfix')),
+      'giro_a_la_vista' => new sfWidgetFormSelect(array('default' => '', 'choices' => array('' => 'Seleccione..', '12' => 'a 12 Meses', '18' => 'a 18 Meses')), array('class' => '')),
       'cuotas'   => new sfWidgetFormInputText(array('default' => '12'),array('class' => 'clearfix')),
       'descuento' => new sfWidgetFormInputText(array('default' => 0),array('class' => 'clearfix')),
     ));

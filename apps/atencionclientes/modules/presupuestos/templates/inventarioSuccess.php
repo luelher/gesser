@@ -4,7 +4,7 @@
       <div class="hero-unit">
         <div class="row">
           <div class="span7 columns">
-            <form method="post">
+            <form method="post" id="formulario">
             <fieldset>
               <h2>Consulta de Existencia</h2>
               <p>Introduzca los valores en los rectangulos y presione en Calcular</p>
@@ -24,6 +24,7 @@
 
               <?php echo $form ?>
               <div class="actions">
+                <input type="hidden" value="<?php echo $pagina ?>" id="page" name="page">
                 <input type="submit" value="Buscar" class="btn primary">
                 <?php echo link_to1('Limpiar', 'presupuestos/inventario', array('class' => 'btn')); ?>
               </div>
@@ -35,7 +36,7 @@
             <fieldset>
               <h3>Resultados</h3>
 
-              <table class="zebra-striped">
+              <table class="zebra-striped" id="table-zebra-striped">
                 <thead>
                   <tr>
                     <th>Código</th>
@@ -47,7 +48,7 @@
                 </thead>
                 <tbody>
                   <?php if ($articulos) : ?>
-                  <?php foreach($articulos->fetchArray() as $index => $art) : ?>
+                  <?php foreach($articulos->toArray() as $index => $art) : ?>
                   <tr>
                     <td><?php echo $art['co_art'] ?></td>
                     <td><?php echo $art['art_des'] ?></td>
@@ -61,6 +62,15 @@
                     </td>
                   </tr>
                   <?php endforeach; ?>
+                  <div class="pagination">
+                    <ul>
+                      <li class="prev"><a href="#" id="previous">← Anterior</a></li>
+                      <li class="next"><a href="#" id="next">Siguiente →</a></li>
+                    </ul>
+                    
+                  </div>
+                  Pagina <?php echo $pagina ?> de <?php echo $total ?> 
+                  <img id="loaderpager" src="/images/loader.gif" style="vertical-align: middle; display: none" />
                   <?php endif; ?>
                 </tbody>
               </table>

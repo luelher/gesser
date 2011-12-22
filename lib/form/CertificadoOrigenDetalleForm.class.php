@@ -9,7 +9,7 @@ class CertificadoOrigenDetalleForm extends BaseForm
   {
     //Body($cedula, $factura, $fecha_factura, $nombre, $casa, $avenida, $urbanizacion, $ciudad, $distrito)
     $this->setWidgets(array(
-      'fecha_factura' => new sfWidgetFormDate(array('format' => '%day%/%month%/%year%'),array('class' => 'clearfix')),
+      'fecha_factura' => new sfWidgetFormDate(array('format' => '%day%/%month%/%year%'),array('class' => '')),
       'cedula' => new sfWidgetFormInputText(array(),array('class' => 'clearfix span9', 'readonly' => true)),
       'nombre' => new sfWidgetFormInputText(array(),array('class' => 'clearfix span9', 'readonly' => true)),
       'casa'   => new sfWidgetFormInputText(array('label' => 'Casa Nro, Edil. Apto Nro'),array('class' => 'clearfix span9')),
