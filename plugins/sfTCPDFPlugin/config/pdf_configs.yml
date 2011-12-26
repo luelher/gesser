@@ -30,7 +30,7 @@ default:
   # header description string
   PDF_HEADER_STRING: "Av. 20 entre carreras 32 y 33. Barquisimeto. Edo Lara. (0251)2329080-2329968"
   # image logo
-  PDF_HEADER_LOGO: "logo.jpg"
+  PDF_HEADER_LOGO: ""
   # header logo image width [mm]
   PDF_HEADER_LOGO_WIDTH: 30
   # document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch]
