@@ -89,9 +89,9 @@ class PDFPresupuesto extends sfTCPDF {
 //    $this->Cell(40, 20, 'Situación');
 
     // print an ending header line
-    $this->SetLineStyle(array('width' => 0.85 / $this->getScaleFactor(), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
-    $this->setY(42);
-    $this->Cell(0, 0, '', 'T', 0, 'C');
+//    $this->SetLineStyle(array('width' => 0.85 / $this->getScaleFactor(), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+//    $this->setY(42);
+//    $this->Cell(0, 0, '', 'T', 0, 'C');
 
   }
 
@@ -131,29 +131,73 @@ class PDFPresupuesto extends sfTCPDF {
 
     public function Body($seleccionados, $saldo, $cuotas, $cuota_mensual, $venta_credito, $intereses, $inicial, $porcentaje_inicial)
     {
+      $this->setPrintFooter(false);
 
       // init pdf doc
       $this->AliasNbPages();
       $this->SetMargins(15, 43, 10, true);
-      $this->AddPage('P','A4');
+      $this->AddPage('P','LETTER');
 
-      
+      $total = 0;
+      foreach ($seleccionados as $articulos) {
+        $total += ( $articulos->getCantidad() * $articulos->getPrecVta5());
+      }
+
+      $this->SetFont('helvetica', 'B', 10);
+      $this->setXY(16,32);
+      $this->Cell(70, 4, 'Total de la Compra: '.($saldo != '' ? number_format($total, 2, ',', '.') : ''));
+      $this->Cell(70, 4, 'Porcentaje Inicial: '.($porcentaje_inicial != '' ? number_format($porcentaje_inicial, 2, ',', '.') : '0,0'));
+     
+      $this->setXY(16,38);
+      $this->Cell(70, 4, 'Inicial: '.($inicial != '' ? number_format($inicial, 2, ',', '.') : '0,0'));
+      $this->Cell(70, 4, 'Cuotas: '.($cuotas != '' ? number_format($cuotas, 0, ',', '.') : ''));
+
+      $this->setXY(16,44);
+      $this->Cell(70, 4, 'Monto Cuota: '.($cuota_mensual != '' ? number_format($cuota_mensual, 2, ',', '.') : ''));
+
+      $this->SetFont('helvetica', '', 10);
+      // Linea Luego del Resumen
+      $this->SetLineStyle(array('width' => 0.85 / $this->getScaleFactor(), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $this->setY(50);
+      $this->Cell(0, 0, '', 'T', 0, 'C');
+
+
+      // Linea Luego del Resumen
+      $this->SetLineStyle(array('width' => 0.85 / $this->getScaleFactor(), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $this->setY(60);
+      $this->Cell(0, 0, '', 'T', 0, 'C');
+
+
+      $this->setXY(16,48);
+      $this->Cell(25, 15, 'Artículo');
+      $this->Cell(80, 15, 'Descripción');
+      $this->Cell(25, 15, 'Cantidad');
+      $this->Cell(25, 15, 'Precio');
+      $this->Cell(25, 15, 'Total');
+
+      // Linea Luego del Resumen
+      $this->SetLineStyle(array('width' => 0.85 / $this->getScaleFactor(), 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $this->setY(60);
+      $this->Cell(0, 0, '', 'T', 0, 'C');
 
       // Encabezado del detalle del reporte
+      $total = 0;
+      $this->setX(16);
       if($seleccionados){
-        $this->SetFont('helvetica', '', 7);
+        $this->SetFont('helvetica', '', 10);
         foreach ($seleccionados as $articulos) {
-          $y = $this->getY();
-          $this->Cell(12, 4, $articulos->getCoArt(),false);
-          $this->MultiCell(30, 4, $servicio->getArtDes(),false);
-          $this->SetFont('helvetica', 'B', 7);
-          $this->Cell(15, 4, $select->getCantidad(),false);
-          $this->Cell(15, 4, number_format($select->getCantidad() * $select->getPrecVta5(), 2, ',', '.'),false);
-          $this->SetFont('helvetica', '', 7);
-          $total += ( $select->getCantidad() * $select->getPrecVta5());
+          $this->Cell(25, 4, $articulos->getCoArt(),false);
+          $this->Cell(80, 4, $articulos->getArtDes(),false);
+          $this->SetFont('helvetica', 'B', 10);
+          $this->Cell(25, 4, $articulos->getCantidad(),false);
+          $this->Cell(25, 4, number_format($articulos->getPrecVta5(), 2, ',', '.'),false);
+          $this->Cell(25, 4, number_format($articulos->getCantidad() * $articulos->getPrecVta5(), 2, ',', '.'),false);
+          $this->SetFont('helvetica', '', 10);
+          $total += ( $articulos->getCantidad() * $articulos->getPrecVta5());
         }
-        $this->Ln();
-        $this->Cell(15, 4,"Total: ".$total,false);
+        $this->Ln();$this->Ln();
+        $this->SetFont('helvetica', 'B', 10);
+        $this->Cell(15, 4,"Total: ".number_format($total,2,',','.'),false);
       }else{
         $this->Cell(20,10, 'Sin Datos Para Mostrar');
       }
@@ -299,7 +343,7 @@ class PDFPresupuesto extends sfTCPDF {
 		}
 		return $nl;
 	}
-
+  
 }
 
 

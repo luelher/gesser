@@ -36,10 +36,6 @@ class presupuestosActions extends sfActions
       if ($this->form->isValid())
       {
         $cal = $request->getParameter('calculadora');
-        if(isset($cal['imprimir'])){
-          $this->setTemplate('layout');
-          $this->setTemplate('imprimir');
-        }
 
         $D18 = (float)$cal['monto_venta'];
         $C20 = (float)$cal['porcentaje_inicial'];
@@ -89,6 +85,31 @@ class presupuestosActions extends sfActions
         $this->porcentaje_inicial = $porcentaje_inicial;
 
         $this->getUser()->setFlash('notice', 'Calculado', false);
+
+        if(isset($cal['imprimir'])){
+
+          $config = sfTCPDFPluginConfigHandler::loadConfig();
+
+          // pdf object
+          $pdf = new PDFPresupuesto();
+
+          // settings
+          //$pdf->SetFont('FreeSerif', '', 12);
+          $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+          $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+          $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, PDF_AUTHOR );
+          $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+          $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+          $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+          $pdf->Body($this->seleccionados, $this->saldo, $this->cuotas, $this->cuota_mensual, $this->venta_credito, $this->intereses, $this->inicial, $this->porcentaje_inicial);
+          // output
+          $pdf->Output();
+
+          // Stop symfony process
+          throw new sfStopException();
+        }
+
 
       }
       else
